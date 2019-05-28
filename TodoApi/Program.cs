@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+
 
 namespace TodoApi
 {
@@ -19,6 +13,9 @@ namespace TodoApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                // WebHost.CreateDefaultBuilder 遵循 builder pattern，创建 a web host
+                // The builder定义web server (比如UseKestrel) and the startup class (UseStartup).
+                // kestrel web server默认将web host运行在IIS， 也可以在扩展方法中调用其他web server
                 .UseStartup<Startup>();
     }
 }
