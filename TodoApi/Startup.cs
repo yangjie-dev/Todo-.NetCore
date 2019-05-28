@@ -27,7 +27,25 @@ namespace TodoApi
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                //API info and description
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "ToDo API",
+                    Description = "A simple example ASP.NET Core Web API",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Jane",
+                        Email = "jiyang@thoughtworks.com",
+                        Url = "https://github.com/jierYang"
+                    },
+                    License = new License
+                    {
+                        Name = "License",
+                        Url = "https://example.com/license"
+                    }
+                });
             });
         }
 
