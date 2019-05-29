@@ -5,6 +5,7 @@ using TodoApi.Models;
 
 namespace TodoApi.Controllers
 {
+    [Produces("application/json")] // declare that the controller's actions support a response content type of application/json:
     [Route("api/[controller]")]
     [ApiController]
     //批注 Web API 控制器类: 自动 HTTP 400 响应
@@ -40,7 +41,27 @@ namespace TodoApi.Controllers
 
             return item;
         }
-
+        
+        /// <summary>
+        /// Creates a TodoItem.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///        "id": 1,
+        ///        "name": "Item1",
+        ///        "isComplete": true
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="item"> todoItem </param>
+        /// <returns>A newly created TodoItem</returns>
+        /// <response code="201">Returns the newly created item</response>
+        /// <response code="400">If the item is null</response>            
+        [ProducesResponseType(201)] //restrict show response http type, xml show http type indroduction
+        [ProducesResponseType(400)]
         [HttpPost]
         public ActionResult Create(TodoItem item)
         {
