@@ -68,6 +68,10 @@ namespace TodoApi.Controllers
             return NoContent(); //HTTP的204(No Content)响应, 就表示执行成功, 但是没有数据, 浏览器不用刷新页面.也不用导向新的页面.
         }
 
+        /// <summary>
+        /// Deletes a specific TodoItem.
+        /// </summary>
+        /// <param name="id"> item id </param> 
         [HttpDelete("{id}")]
         public ActionResult Delete(long id)
         {
